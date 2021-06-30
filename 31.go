@@ -35,4 +35,7 @@ func main() {
 	p1 := NewPoint(0, 0)
 	p2 := NewPoint(10, 10)
 	fmt.Println(p1.Range(p2))
+	p3 := NewPoint(10, 10)
+	p4 := NewPoint(0, 0)
+	fmt.Println(p3.Range(p4))
 }

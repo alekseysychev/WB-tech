@@ -1,0 +1,12 @@
+Name:Company:Price:Ganre:Multiplayer
+:Company
+Item2:Company2:70000$:Ganre2:Yes
+:Yes
+:Yes
+
+строка без разделителей
+строка без разделителей
+строка без разделителей
+строка без разделителей
+0000$:Ganre2:Yes
+Item7:Company7

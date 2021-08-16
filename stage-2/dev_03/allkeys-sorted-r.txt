@@ -1,0 +1,5 @@
+4 01 Nov 1G
+3 99 apr 1K
+2 11 mar 1K
+1 0 Dec 1G
+0 -10 JAN 1M

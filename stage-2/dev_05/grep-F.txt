@@ -1,0 +1,2 @@
+         $ grep -n -- 'f.*\.c$' *g*.h /dev/null
+              the regular expression `.*bar.' or `.*b.*3', but not `f.*r3'.  The regular expressions understood by find are by default Emacs  Regular  Expressions  (except

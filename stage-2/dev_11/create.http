@@ -1,0 +1,4 @@
+POST http://localhost:9090/create_event HTTP/1.1
+content-type: application/x-www-form-urlencoded
+
+user_id=1&name=name1&text=text1&date=2019-09-09

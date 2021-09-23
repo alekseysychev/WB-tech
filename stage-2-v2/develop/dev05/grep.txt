@@ -1,0 +1,120 @@
+       grep [OPTION...] PATTERNS [FILE...]
+       grep [OPTION...] -e PATTERNS ... [FILE...]
+       grep [OPTION...] -f PATTERN_FILE ... [FILE...]
+       grep  searches  for  PATTERNS  in  each  FILE.   PATTERNS is one or more patterns separated by newline characters, and grep prints each line that matches a pattern.
+       A FILE of “-” stands for standard input.  If no FILE is given, recursive searches examine the working directory, and nonrecursive searches read standard input.
+       In addition, the variant programs egrep, fgrep and rgrep are the same as grep -E, grep -F, and grep -r,  respectively.   These  variants  are  deprecated,  but  are
+       -F, --fixed-strings
+       -f FILE, --file=FILE
+              Obtain  patterns from FILE, one per line.  If this option is used multiple times or is combined with the -e (--regexp) option, search for all patterns given.
+              Select  only those matches that exactly match the whole line.  For a regular expression pattern, this is like parenthesizing the pattern and then surrounding
+              Output  a  zero  byte  (the ASCII NUL character) instead of the character that normally follows a file name.  For example, grep -lZ outputs a zero byte after
+   File and Directory Selection
+              a pattern matches a file.  For example, when type is binary the pattern q$ might match q immediately followed by a null byte, even though this is not matched
+              If an input file is a device, FIFO or socket, use ACTION to process it.  By default, ACTION is read, which means that devices are read just as if  they  were
+       --exclude-from=FILE
+              Skip files whose base name matches any of the file-name globs read from FILE (using wildcard matching as described under --exclude).
+              Read all files under each directory, recursively.  Follow all symbolic links, unlike -r.
+              with CR/LF pairs at the end of each line, this will cause some regular expressions to fail.  This option has no effect on platforms other than MS-DOS and MS-
+       then it matches any character not in the list; it is unspecified whether it matches an encoding error.  For example, the regular expression [0123456789] matches any
+       characters,  inclusive, using the locale's collating sequence and character set.  For example, in the default C locale, [a-d] is equivalent to [abcd].  Many locales
+       Finally,  certain  named  classes  of  characters  are predefined within bracket expressions, as follows.  Their names are self explanatory, and they are [:alnum:],
+       [:alpha:], [:blank:], [:cntrl:], [:digit:], [:graph:], [:lower:], [:print:], [:punct:], [:space:], [:upper:], and [:xdigit:].  For example,  [[:alnum:]]  means  the
+       anywhere but first.  Finally, to include a literal - place it last.
+       set  specifies  the  locale.   For  example, if LC_ALL is not set, but LC_MESSAGES is set to pt_BR, then the Brazilian Portuguese locale is used for the LC_MESSAGES
+              also  determines  the character encoding, that is, whether text is encoded in UTF-8, ASCII, or some other encoding.  In the C or POSIX locale, all characters
+       Copyright 1998-2000, 2002, 2005-2020 Free Software Foundation, Inc.
+       This is free software; see the source for copying conditions.  There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+   Full Documentation
+FIND(1)                                                                   General Commands Manual                                                                   FIND(1)
+       should read the `Security Considerations' chapter of the findutils documentation, which is called Finding Files and comes with findutils.  That  document  also  in‐
+       -L     Follow symbolic links.  When find examines or prints information about files, the information used shall be taken from the properties of the  file  to  which
+              bolic  link,  and  the  link  can be resolved.  For that situation, the information used is taken from whatever the link points to (that is, the link is fol‐
+              separated.   Compatibility  of the debug options is not guaranteed between releases of findutils.  For a complete list of valid debug options, see the output
+                     to stat the file first.  If you use the -fstype FOO predicate and specify a filesystem type FOO which is not known (that is, present  in  `/etc/mtab')
+                     whether  they  are  likely  to succeed or not.  For -o, predicates which are likely to succeed are evaluated earlier, and for -a, predicates which are
+       -d     A synonym for -depth, for compatibility with FreeBSD, NetBSD, MacOS X and OpenBSD.
+              Furthermore,  find with the -ignore_readdir_race option will ignore errors of the -delete action in the case the file has disappeared since the parent direc‐
+              that do not follow the Unix directory-link convention, such as CD-ROM or MS-DOS filesystems or AFS volume mount points.  Each  directory  on  a  normal  Unix
+              File was last accessed n minutes ago.
+              File was last accessed n*24 hours ago.  When find figures out how many 24-hour periods ago the file was last accessed, any fractional part is ignored, so  to
+              File's status was last changed n minutes ago.
+              File's status was last changed n*24 hours ago.  See the comments for -atime to understand how rounding affects  the  interpretation  of  file  status  change
+       -empty File is empty and is either a regular file or a directory.
+              NFS servers which do UID mapping (or root-squashing), since many systems implement access(2) in the client's kernel and so cannot make use of the UID mapping
+              File  is on a filesystem of type type.  The valid filesystem types vary among different versions of Unix; an incomplete list of filesystem types that are ac‐
+              cepted on some version of Unix or another is: ufs, 4.2, 4.3, nfs, tmp, mfs, S51K, S52K.  You can use -printf with the %F directive to see the types  of  your
+       -gid n File's numeric group ID is n.
+              File belongs to group gname (numeric group ID allowed).
+              Like -name, but the match is case insensitive.  For example, the patterns `fo*' and `F??' match the file names `Foo', `FOO', `foo', `fOo', etc.  The  pattern
+              File has inode number n.  It is normally easier to use the -samefile test instead.
+              File has n hard links.
+              File  is  a symbolic link whose contents match shell pattern pattern.  The metacharacters do not treat `/' or `.' specially.  If the -L option or the -follow
+              File's data was last modified n minutes ago.
+              File's data was last modified n*24 hours ago.  See the comments for -atime to understand how rounding affects the interpretation of file modification times.
+              the  base  name  (this  is  a  change in findutils-4.2.2; see section STANDARDS CONFORMANCE below).  To ignore a directory and the files under it, use -prune
+              File name matches shell pattern pattern.  The metacharacters do not treat `/' or `.' specially; so, for example,
+              Find compares the -path argument with the concatenation of a directory name and the base name of the file it's examining.  Since the concatenation will never
+              File's permission bits are exactly mode (octal or symbolic).  Since an exact match is required, if you want to use this form for symbolic modes, you may have
+              to specify a rather complex mode string.  For example `-perm g=w' will only match files which have mode 0020 (that is, ones for which group write  permission
+              nores.  This test makes use of the access(2) system call, and so can be fooled by NFS servers which do UID mapping (or root-squashing),  since  many  systems
+              File  name  matches regular expression pattern.  This is a match on the whole path, not a search.  For example, to match a file named `./fubar3', you can use
+              File refers to the same inode as name.  When -L is in effect, this can include symbolic links.
+              File uses n units of space, rounding up.  The following suffixes can be used:
+              File is of type c:
+              p      named pipe (FIFO)
+       -uid n File's numeric user ID is n.
+              File was last accessed n days after its status was last changed.
+              File is owned by user uname (numeric user ID allowed).
+              nores.   This  test  makes use of the access(2) system call, and so can be fooled by NFS servers which do UID mapping (or root-squashing), since many systems
+              The same as -type unless the file is a symbolic link.  For symbolic links: if the -H or -P option was specified, true if the file is a link to a file of type
+              True; like -ls but write to file like -fprint.  The output file is always created, even if the predicate is never matched.  See the UNUSUAL FILENAMES section
+              created, even if the predicate is never matched.  See the UNUSUAL FILENAMES section for information about how unusual characters in filenames are handled.
+              True; like -print0 but write to file like -fprint.  The output file is always created, even if the predicate is never matched.   See  the  UNUSUAL  FILENAMES
+              True;  like  -printf  but  write to file like -fprint.  The output file is always created, even if the predicate is never matched.  See the UNUSUAL FILENAMES
+              in which case 512-byte blocks are used.  See the UNUSUAL FILENAMES section for information about how unusual characters in filenames are handled.
+              of -print.  See the UNUSUAL FILENAMES section for information about how unusual characters in filenames are handled.
+              True; print format on the standard output, interpreting `\' escapes and `%' directives.  Field widths and precisions can be specified as with the `printf'  C
+              \f     Form feed.
+              %a     File's last access time in the format returned by the C `ctime' function.
+              %Ak    File's last access time in the format specified by k, which is either `@' or a directive for the C `strftime' function.  The possible values for k are
+              %c     File's last status change time in the format returned by the C `ctime' function.
+              %Ck    File's last status change time in the format specified by k, which is the same as for %A.
+              %d     File's depth in the directory tree; 0 means the file is a starting-point.
+              %f     File's name with any leading directories removed (only the last element).
+              %F     Type of the filesystem the file is on; this value can be used for -fstype.
+              %g     File's group name, or numeric group ID if the group has no name.
+              %G     File's numeric group ID.
+              %i     File's inode number (in decimal).
+              %m     File's permission bits (in octal).  This option uses the `traditional' numbers which most Unix implementations use, but if your particular implementa‐
+              %M     File's permissions (in symbolic form, as for ls).  This directive is supported in findutils 4.2.5 and later.
+              %p     File's name.
+              %P     File's name with the name of the starting-point under which it was found removed.
+              %s     File's size in bytes.
+              %S     File's  sparseness.   This is calculated as (BLOCKSIZE*st_blocks / st_size).  The exact value you will get for an ordinary file of a certain length is
+              %t     File's last modification time in the format returned by the C `ctime' function.
+              %Tk    File's last modification time in the format specified by k, which is the same as for %A.
+              %u     File's user name, or numeric user ID if the user has no name.
+              %U     File's numeric user ID.
+              %y     File's type (like in ls -l), U=unknown type (shouldn't happen)
+              %Y     File's type (like %y), plus follow symlinks: `L'=loop, `N'=nonexistent, `?' for any other error when determining the type of the symlink target.
+              See the UNUSUAL FILENAMES section for information about how unusual characters in filenames are handled.
+                For example, to skip the directory `src/emacs' and all files and directories under it, and print the names of the other  files  found,  do  something  like
+       -quit  Exit  immediately.   No  child processes will be left running, but no more paths specified on the command line will be processed.  For example, find /tmp/foo
+              Force  precedence.   Since  parentheses  are  special to the shell, you will normally need to quote them.  Many of the examples in this manual page use back‐
+UNUSUAL FILENAMES
+       forth.  File names are a potential problem since they can contain any character except `\0' and `/'.  Unusual characters in file names can do unexpected  and  often
+              If the output is not going to a terminal, it is printed as-is.  Otherwise, the result depends on which directive is in use.  The directives %D, %F,  %g,  %G,
+STANDARDS CONFORMANCE
+       For  closest  compliance  to the POSIX standard, you should set the POSIXLY_CORRECT environment variable.  The following options are specified in the POSIX standard
+       -type  Supported.  POSIX specifies `b', `c', `d', `l', `p', `f' and `s'.  GNU find also supports `D', representing a Door, where the OS  provides  these.   Further‐
+              the section UNUSUAL FILENAMES.
+       Find  files  named core in or below the directory /tmp and delete them.  Note that this will work incorrectly if there are any filenames containing newlines, single
+       Find files named core in or below the directory /tmp and delete them, processing filenames in such a way that file or directory names containing  single  or  double
+       Search for files which have read and write permission for their owner, and group, but which other users can read but not write to.  Files which meet these  criteria
+       When  some  error  occurs, find may stop immediately, without completing all the actions specified.  For example, some starting points may not have been examined or
+       Feature                Added in   Also occurs in
+       Copyright © 1990-2019 Free Software Foundation, Inc.  License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+       There are security problems inherent in the behaviour that the POSIX standard specifies for find, which therefore cannot be fixed.  For example, the -exec action is
+       inherently insecure, and -execdir should be used instead.  Please see Finding Files for more information.
+                                                                                                                                                                    FIND(1)
